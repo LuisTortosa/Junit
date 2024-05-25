@@ -3,6 +3,8 @@
  * and open the template in the editor.
  */
 package com.mycompany.myutils;
+import java.time.LocalDate;
+
 
 
 /**
@@ -22,6 +24,9 @@ public class MyUtils {
 public static String inverteix (String cadena)
 {
     String resultat="";
+    for (int i = cadena.length() -1; i >= 0; i--) {
+        resultat = resultat + cadena.charAt(i);
+    }
     return resultat;
 }
 /**
@@ -34,8 +39,18 @@ public static String inverteix (String cadena)
  */
 public static int edat (int day, int month, int year)
 {
+    
     int resultat=0;
-    return resultat;
+    resultat = 2024 - year;
+    if(resultat > 150){
+        return -1;
+    }else if(resultat < 0){
+        return -2;
+    }else{
+        return resultat;
+    }
+    
+    
 }
 
 
@@ -45,13 +60,15 @@ public static int edat (int day, int month, int year)
  * @return retorna el factorial d'un número. Si el nombre es negatiu retorna -1.
  */
 public static double factorial (double numero) {
- 
-if (numero==0)
-return 1;
-else
-{
-    double resultat = numero * factorial(numero-1);
-    return resultat;
-}
+    double resultat = 1;
+    if (numero==0 || numero<0){
+        return -1;
+    }else{
+        for (int i = 1; i <= numero; i++) {
+                resultat *= i;
+            }
+
+            return resultat;
+    }
 }
 }
